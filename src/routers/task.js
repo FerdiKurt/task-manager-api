@@ -24,14 +24,14 @@ router.get('/tasks', auth, async (req, res) => {
   const user = req.user
 
   if (req.query.completed) {
-    match.completed = req.query.completed === 'true'
+    match.completed = req.query.completed
   }
 
   if (req.query.sortBy) {
     const parts = req.query.sortBy.split(':')
-    console.log(parts)
+    // console.log(parts)
     sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
-    console.log(sort)
+    // console.log(sort)
   }
 
   try {
